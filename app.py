@@ -23,7 +23,7 @@ from datetime import timedelta
 # a top drawer on small screens automatically in Streamlit.
 # --------------------------------------------------------------------------
 st.set_page_config(
-    page_title="Campus Sales Tracker & Forecaster",
+    page_title="Campus Sales Tracker",
     page_icon="📈",
     layout="wide",
     initial_sidebar_state="collapsed",
@@ -47,10 +47,6 @@ def check_password():
 
 if not check_password():
     st.stop()  # Stops the rest of the app from running
-
-# --- YOUR ACTUAL APP CODE STARTS HERE ---
-
-
 
 
 REQUIRED_COLS = ["Date", "Item_Category", "Units_Sold", "Item_Price", "Ad_Spend", "Customer_Views"]
