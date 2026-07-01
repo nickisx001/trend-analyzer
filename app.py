@@ -29,6 +29,30 @@ st.set_page_config(
     initial_sidebar_state="collapsed",
 )
 
+def check_password():
+    if "password_correct" not in st.session_state:
+        st.session_state.password_correct = False
+
+    if st.session_state.password_correct:
+        return True
+
+    # Show input for password
+    password = st.text_input("Enter Password to Access Tracker", type="password")
+    if password == "YourSecretPassword123": # Change this to your password
+        st.session_state.password_correct = True
+        st.rerun()
+    elif password:
+        st.error("Incorrect password")
+    return False
+
+if not check_password():
+    st.stop()  # Stops the rest of the app from running
+
+# --- YOUR ACTUAL APP CODE STARTS HERE ---
+st.title("Campus Sales Tracker & Forecaster")
+
+
+
 REQUIRED_COLS = ["Date", "Item_Category", "Units_Sold", "Item_Price", "Ad_Spend", "Customer_Views"]
 
 
