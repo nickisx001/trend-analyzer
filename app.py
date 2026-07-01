@@ -23,7 +23,7 @@ from datetime import timedelta
 # a top drawer on small screens automatically in Streamlit.
 # --------------------------------------------------------------------------
 st.set_page_config(
-    page_title="Campus Sales Tracker",
+    page_title="",
     page_icon="📈",
     layout="wide",
     initial_sidebar_state="collapsed",
