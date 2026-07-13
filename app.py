@@ -9,14 +9,22 @@ Architecture:
   - Random Forest demand model + prescriptive price optimization
   - Executive Plotly dashboard
 
-Drop this file in as app.py. Configure `.streamlit/secrets.toml`:
+Drop this file in as app.py. Create `.streamlit/secrets.toml` in the SAME FOLDER
+as app.py (not inside it) with the block below. The section name must be
+"connections.postgresql" — it has to match the first argument passed to
+st.connection() further down this file, or Streamlit won't find it:
 
-    [postgres]
-    host = "your-host"
-    port = 5432
-    dbname = "campus_market"
-    user = "your_user"
+    [connections.postgresql]
+    dialect  = "postgresql"
+    host     = "your-host"
+    port     = "5432"
+    database = "campus_market"
+    username = "your_user"
     password = "your_password"
+
+Also add to requirements.txt:  psycopg2-binary, sqlalchemy
+(If the app is already running, restart it after creating/editing secrets.toml
+— Streamlit only reads that file on startup.)
 
 Run:  streamlit run app.py
 ================================================================================
